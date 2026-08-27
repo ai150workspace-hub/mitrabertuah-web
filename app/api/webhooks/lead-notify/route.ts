@@ -1,5 +1,5 @@
 // Penerima Supabase Database Webhook — dipanggil trigger di
-// bertuah-crm (migrasi 0014) setiap ada insert baru di
+// bertuah-crm (migrasi 0017) setiap ada insert baru di
 // web_lead_submissions. Lihat §5.7 build spec.
 //
 // PENTING: endpoint ini dipanggil dari Postgres (pg_net), bukan dari
