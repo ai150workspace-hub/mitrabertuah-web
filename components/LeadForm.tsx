@@ -240,11 +240,15 @@ export function LeadForm({ defaultKota = "Pekanbaru" }: { defaultKota?: string }
           )}
         />
         <Label htmlFor="consentGiven" className="text-sm font-normal text-muted-foreground">
-          {CONSENT_TEXT} Baca{" "}
-          <Link href="/kebijakan-privasi" className="text-primary underline">
+          {CONSENT_TEXT}{" "}
+          <Link
+            href="/kebijakan-privasi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-primary underline"
+          >
             Kebijakan Privasi
-          </Link>{" "}
-          kami.
+          </Link>
         </Label>
       </div>
       {errors.consentGiven && (
