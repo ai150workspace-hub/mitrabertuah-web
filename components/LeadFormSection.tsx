@@ -1,4 +1,10 @@
-import { LeadForm } from "@/components/LeadForm";
+import dynamic from "next/dynamic";
+
+// Code-split — LeadForm membawa react-hook-form + zod (chunk JS terbesar
+// di halaman, ~130KB). Dipecah jadi chunk terpisah supaya tidak ikut
+// membengkakkan JS yang wajib dieksekusi sebelum halaman interaktif.
+// Ditemukan lewat pengukuran Lighthouse production sungguhan, bukan dugaan.
+const LeadForm = dynamic(() => import("@/components/LeadForm").then((m) => m.LeadForm));
 
 export function LeadFormSection({ defaultKota }: { defaultKota?: string }) {
   return (
