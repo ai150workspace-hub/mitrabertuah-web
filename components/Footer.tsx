@@ -1,8 +1,15 @@
 import Link from "next/link";
-import { siteConfig } from "@/lib/site-config";
+import {
+  siteConfig,
+  displayOfficeAddress,
+  displayBusinessEntity,
+  displayLegalDisclaimer,
+} from "@/lib/site-config";
 
-// Kalimat disclaimer legal di sini SENGAJA placeholder — §10.3, blocker
-// publish §1 nomor 2. Jangan diisi tanpa konfirmasi eksplisit owner.
+// Kalimat disclaimer & alamat asli SENGAJA menunggu owner (§10.3, §1
+// nomor 2/4) — yang tampil di bawah fallback netral (lib/site-config.ts),
+// bukan karangan. Jangan diisi manual tanpa konfirmasi eksplisit owner.
+// TODO: menunggu teks final dari owner.
 export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30">
@@ -10,7 +17,7 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
             <div className="font-semibold text-lg">{siteConfig.brandName}</div>
-            <p className="mt-2 text-sm text-muted-foreground">{siteConfig.officeAddress}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{displayOfficeAddress()}</p>
           </div>
 
           <div>
@@ -31,12 +38,12 @@ export function Footer() {
 
           <div>
             <div className="font-medium text-sm">Status</div>
-            <p className="mt-2 text-sm text-muted-foreground">{siteConfig.businessEntity}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{displayBusinessEntity()}</p>
           </div>
         </div>
 
         <div className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
-          <p>{siteConfig.legalDisclaimer}</p>
+          <p>{displayLegalDisclaimer()}</p>
           <p className="mt-2">
             © {new Date().getFullYear()} {siteConfig.brandName}. Kami bekerja sama
             dengan {siteConfig.partnerDescription} — bukan perusahaan pembiayaan atau

@@ -26,3 +26,31 @@ const PLACEHOLDER = "[TUNGGU KONFIRMASI OWNER]";
 export function isPendingConfirmation(value: string): boolean {
   return value === PLACEHOLDER;
 }
+
+// Satu-satunya kalimat disclaimer yang sudah final (§13.3 build spec,
+// bukan karangan) — dipakai DisclosureBar.tsx (wajib di atas artikel)
+// DAN sebagai fallback footer (bukan menulis kalimat baru). Beda dengan
+// siteConfig.legalDisclaimer yang masih genuinely menunggu owner.
+export const APPROVED_DISCLOSURE_TEXT =
+  "Mitra Bertuah adalah mitra pemasaran perusahaan pembiayaan berizin OJK. " +
+  "Komisi kami dibayar oleh perusahaan pembiayaan, bukan oleh Anda.";
+
+// Redesign brief §5: placeholder TIDAK BOLEH tampil ke pengunjung, tapi
+// section-nya juga tidak boleh dihapus. Solusinya: tampilkan fallback
+// netral yang jelas-jelas aman (bukan karangan/klaim baru) sampai owner
+// mengonfirmasi versi asli — situs tetap noindex sepanjang itu.
+// TODO: menunggu teks final dari owner untuk officeAddress, businessEntity,
+// legalDisclaimer (lihat §1 build spec nomor 1, 2, 4).
+export function displayOfficeAddress(): string {
+  return isPendingConfirmation(siteConfig.officeAddress) ? "Pekanbaru, Riau" : siteConfig.officeAddress;
+}
+
+export function displayBusinessEntity(): string {
+  return isPendingConfirmation(siteConfig.businessEntity)
+    ? "Mitra pemasaran resmi perusahaan pembiayaan berizin OJK"
+    : siteConfig.businessEntity;
+}
+
+export function displayLegalDisclaimer(): string {
+  return isPendingConfirmation(siteConfig.legalDisclaimer) ? APPROVED_DISCLOSURE_TEXT : siteConfig.legalDisclaimer;
+}

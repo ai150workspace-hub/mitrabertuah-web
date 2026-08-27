@@ -5,7 +5,10 @@ import { siteConfig } from "@/lib/site-config";
 // dikumpulkan, tujuan, dibagikan ke siapa, retensi, cara menarik
 // persetujuan) BELUM ditulis — itu klaim hukum, tunduk aturan yang sama
 // dengan disclaimer footer (§10.1, Aturan Mutlak #6). Kerangka bagiannya
-// sudah sesuai §10.1, kontennya menunggu konfirmasi owner.
+// sudah sesuai §10.1, kontennya menunggu konfirmasi owner. Fallback di
+// bawah teks netral minimum (redesign brief §5) — bukan placeholder
+// mentah — supaya section tetap ada tapi tidak menampilkan bracket.
+// TODO: menunggu teks final tiap section dari owner.
 export const metadata: Metadata = {
   title: `Kebijakan Privasi — ${siteConfig.brandName}`,
   robots: { index: false, follow: false },
@@ -32,7 +35,10 @@ export default function KebijakanPrivasiPage() {
         {SECTIONS.map((title) => (
           <section key={title}>
             <h2 className="font-medium">{title}</h2>
-            <p className="mt-1 text-sm text-muted-foreground">[TUNGGU KONFIRMASI OWNER]</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Detail lengkap sedang disiapkan. Untuk pertanyaan seputar data Anda, hubungi
+              kami langsung lewat WhatsApp.
+            </p>
           </section>
         ))}
       </div>

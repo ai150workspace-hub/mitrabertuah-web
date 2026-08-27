@@ -11,10 +11,14 @@ export function FaqSection() {
         Pertanyaan yang Sering Ditanyakan
       </h2>
 
-      <Accordion className="mt-8" defaultValue={[FAQ_ITEMS[0].question]}>
+      <Accordion className="mt-8 space-y-3" defaultValue={[FAQ_ITEMS[0].question]}>
         {FAQ_ITEMS.map((item) => (
-          <AccordionItem key={item.question} value={item.question}>
-            <AccordionTrigger>{item.question}</AccordionTrigger>
+          <AccordionItem
+            key={item.question}
+            value={item.question}
+            className="rounded-2xl border border-border bg-card px-5 not-last:border-b-0"
+          >
+            <AccordionTrigger className="text-base font-medium py-4">{item.question}</AccordionTrigger>
             <AccordionContent>
               <p className="text-muted-foreground">{item.answer}</p>
             </AccordionContent>

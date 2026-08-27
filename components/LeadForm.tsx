@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,7 @@ import { leadFormSchema, KEPERLUAN_DANA_OPTIONS, type LeadFormInput } from "@/sc
 import { submitLead } from "@/app/actions/submit-lead";
 import { CONSENT_TEXT } from "@/lib/consent";
 import { getStoredAttribution } from "@/lib/attribution";
+import { getJourneyHandoff, JOURNEY_HANDOFF_EVENT } from "@/lib/journey-handoff";
 import { trackEvent } from "@/lib/analytics";
 import Link from "next/link";
 
@@ -40,6 +41,7 @@ export function LeadForm({ defaultKota = "Pekanbaru" }: { defaultKota?: string }
     register,
     control,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<LeadFormInput>({
     resolver: zodResolver(leadFormSchema),
@@ -47,8 +49,30 @@ export function LeadForm({ defaultKota = "Pekanbaru" }: { defaultKota?: string }
       jenisKendaraan: "Mobil",
       domisiliKota: defaultKota,
       website: "",
+      // Kalau pengunjung sudah menyelesaikan JourneyKelayakan SEBELUM
+      // form ini pertama kali dirender (mis. balik dari WhatsApp lalu
+      // scroll lagi ke sini), nilainya sudah ada duluan di sessionStorage
+      // saat mount ini terjadi.
+      ...getJourneyHandoff(),
     },
   });
+
+  // JourneyKelayakan dan form ini SUDAH sama-sama ter-mount di halaman
+  // yang sama sejak awal — kalau pengunjung baru menyelesaikan journey
+  // SETELAH form ini mount, defaultValues di atas tidak akan menangkapnya
+  // (react-hook-form cuma baca defaultValues sekali). Event ini yang
+  // menangkap kasus itu. Tidak menyentuh skema/validasi, cuma nilai field.
+  useEffect(() => {
+    function applyHandoff() {
+      const handoff = getJourneyHandoff();
+      if (handoff.jenisKendaraan) setValue("jenisKendaraan", handoff.jenisKendaraan);
+      if (handoff.tahunKendaraan) setValue("tahunKendaraan", handoff.tahunKendaraan);
+      if (handoff.estimasiNilaiKendaraan)
+        setValue("estimasiNilaiKendaraan", handoff.estimasiNilaiKendaraan);
+    }
+    window.addEventListener(JOURNEY_HANDOFF_EVENT, applyHandoff);
+    return () => window.removeEventListener(JOURNEY_HANDOFF_EVENT, applyHandoff);
+  }, [setValue]);
 
   function handleFirstFocus() {
     if (hasTrackedStart.current) return;

@@ -40,12 +40,18 @@ export function HeroSection() {
 
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
             <WhatsAppButton positionCode="[WEB-HERO]" label="Chat WhatsApp Sekarang" />
-            <a href="#pengajuan" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full")}>
-              Isi Form Pengajuan
+            <a href="#kelayakan" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full")}>
+              Cek Kelayakan Kendaraan
             </a>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-1.5 text-sm text-muted-foreground lg:justify-start">
+          {/* Elemen paling berharga di halaman (redesign brief) — harus
+              terlihat tanpa menggulir jauh, bukan dikubur di footer. */}
+          <p className="mt-4 text-sm font-medium text-muted-foreground">
+            Kami tidak memungut biaya apa pun dari Anda.
+          </p>
+
+          <div className="mt-4 flex items-center justify-center gap-1.5 text-sm text-muted-foreground lg:justify-start">
             <MapPin className="size-4" />
             Melayani Pekanbaru dan sekitarnya
           </div>

@@ -3,10 +3,11 @@
 //
 // Enam pertanyaan pertama bukan tebakan: itu daftar yang dipasang
 // kompetitor nasional (taktis.co.id), berarti sudah tervalidasi sebagai
-// keberatan nyata pembeli (§6.6). Item "Siapa kami?" sengaja memuat
-// placeholder — identitas & status badan usaha belum dikonfirmasi
-// pemilik (§1).
-import { siteConfig } from "@/lib/site-config";
+// keberatan nyata pembeli (§6.6). Item "Siapa kami?" memakai fallback
+// netral (bukan placeholder mentah) sampai identitas & status badan
+// usaha dikonfirmasi pemilik (§1) — redesign brief §5: placeholder
+// tidak boleh tampil ke pengunjung.
+import { siteConfig, displayOfficeAddress, displayBusinessEntity } from "@/lib/site-config";
 
 export interface FaqItem {
   question: string;
@@ -41,7 +42,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     question: "Siapa kami?",
-    answer: `${siteConfig.brandName} — ${siteConfig.businessEntity}. Kantor kami di Pekanbaru: ${siteConfig.officeAddress}.`,
+    answer: `${siteConfig.brandName} — ${displayBusinessEntity()}. Kantor kami di ${displayOfficeAddress()}.`,
   },
   {
     question: "Apakah saya dikenakan biaya?",

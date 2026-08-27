@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { MapPin } from "lucide-react";
 import { KOTA_WHITELIST, getKotaBySlug } from "@/lib/kota";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { TrustSection } from "@/components/TrustSection";
 import { LeadFormSection } from "@/components/LeadFormSection";
 import { FaqSection } from "@/components/FaqSection";
 import { FaqJsonLd } from "@/components/JsonLd";
@@ -67,6 +68,7 @@ export default async function KotaPage({ params }: { params: Params }) {
         </div>
       </section>
 
+      <TrustSection />
       <LeadFormSection defaultKota={info.nama} />
       <FaqSection />
     </>
