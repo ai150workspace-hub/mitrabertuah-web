@@ -146,10 +146,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
           ["Vercel", "tempat situs ini dijalankan"],
           ["Google Analytics", "statistik kunjungan situs"],
           ["Google reCAPTCHA", "mencegah pengiriman formulir oleh robot"],
-          [
-            "[[ISI: penyedia notifikasi WhatsApp atau email, kalau sudah dipakai]]",
-            "mengirim pemberitahuan lead baru kepada tim kami",
-          ],
+          ["Resend", "mengirim pemberitahuan lead baru lewat email kepada tim kami"],
         ],
       },
       {
@@ -159,7 +156,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       { type: "p", text: "**d. Penyimpanan di luar wilayah Indonesia.**" },
       {
         type: "p",
-        text: "[[ISI: cek region project Supabase dan Vercel. Kalau berada di luar Indonesia — Singapura adalah pengaturan bawaan yang paling umum — tulis terus terang bahwa data disimpan di negara tersebut.]]",
+        text: "Data Anda diproses dan disimpan di luar Indonesia: basis data kami (Supabase) berlokasi di Seoul, Korea Selatan, dan situs ini dijalankan (Vercel) dari Washington D.C., Amerika Serikat.",
       },
       {
         type: "p",
