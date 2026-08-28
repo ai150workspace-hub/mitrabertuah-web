@@ -1,16 +1,18 @@
 // Satu sumber untuk identitas bisnis di seluruh situs — Aturan Mutlak #9:
 // jangan hardcode nomor WA, alamat, atau nama badan usaha di komponen.
 //
-// officeAddress dan businessEntity SENGAJA placeholder: keduanya
-// keputusan terbuka pemilik yang memblokir publish (§1 nomor 1 dan 4
-// build spec), bukan sesuatu yang boleh ditebak. Ganti begitu owner
+// businessEntity SENGAJA masih placeholder: bentuk badan usaha resmi
+// (perorangan/CV/PT) belum dikonfirmasi owner, beda dari alamat kantor
+// yang sudah (§1 nomor 1 dan 4 build spec). Ganti begitu owner
 // mengonfirmasi.
 export const siteConfig = {
   brandName: "Mitra Bertuah",
   domain: "mitrabertuah.com",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",
-  officeAddress: "[TUNGGU KONFIRMASI OWNER]",
+  // Dikonfirmasi owner 2026-08-28 — harus sama persis dengan yang
+  // dipakai di content/kebijakan-privasi.ts bagian 1.
+  officeAddress: "Jl. Rajawali Sakti No. 2, Kel. Toek Godang, Kec. Binawidya, Kota Pekanbaru, Riau",
   businessEntity: "[TUNGGU KONFIRMASI OWNER]",
   legalDisclaimer: "[TUNGGU KONFIRMASI OWNER]",
   // Tidak menyebut nama/logo mitra leasing mana pun — Aturan Mutlak #7,

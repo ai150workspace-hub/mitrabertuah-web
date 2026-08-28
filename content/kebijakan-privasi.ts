@@ -41,10 +41,10 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       {
         type: "lines",
         items: [
-          "[[ISI: nama badan usaha resmi — perorangan atas nama siapa, atau CV/PT apa]]",
-          "Alamat: [[ISI: alamat kantor lengkap, harus sama persis dengan yang tertulis di Google Business Profile dan di footer situs]]",
-          "WhatsApp: [[ISI: nomor resmi]]",
-          "Email: [[ISI: alamat email resmi — jangan pakai email pribadi]]",
+          "Mitra Bertuah",
+          "Alamat: Jl. Rajawali Sakti No. 2, Kel. Toek Godang, Kec. Binawidya, Kota Pekanbaru, Riau",
+          "WhatsApp: 08136806248",
+          "Email: mitrabertuah.id@gmail.com",
         ],
       },
       {
@@ -177,7 +177,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
         rows: [
           [
             "Pengajuan yang tidak dilanjutkan atau tidak disetujui",
-            "[[ISI: usulan 12 bulan — pilih angka yang benar-benar bisa dijalankan]] sejak kontak terakhir",
+            "12 bulan sejak kontak terakhir",
           ],
           [
             "Pengajuan yang diteruskan dan disetujui",
@@ -251,7 +251,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       { type: "p", text: "Hubungi kami melalui:" },
       {
         type: "list",
-        items: ["Email: [[ISI: alamat email resmi]]", "WhatsApp: [[ISI: nomor resmi]]"],
+        items: ["Email: mitrabertuah.id@gmail.com", "WhatsApp: 08136806248"],
       },
       {
         type: "p",

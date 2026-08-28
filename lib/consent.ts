@@ -22,4 +22,5 @@ export const CONSENT_TEXT =
 // ini juga, jadi halaman tidak akan tayang selama owner belum mengisi
 // tanggal publikasi sungguhan.
 export const POLICY_VERSION = "1.0";
-export const POLICY_EFFECTIVE_DATE = "[[ISI: tanggal publikasi]]";
+// Dikonfirmasi owner 2026-08-28.
+export const POLICY_EFFECTIVE_DATE = "28 Agustus 2026";
