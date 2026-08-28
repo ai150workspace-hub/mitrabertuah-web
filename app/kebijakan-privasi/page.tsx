@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import { PRIVACY_SECTIONS, RINGKASAN_SINGKAT, type PolicyBlock } from "@/content/kebijakan-privasi";
+import { PRIVACY_SECTIONS, INTRO_TEXT, type PolicyBlock } from "@/content/kebijakan-privasi";
 import { isPolicyReadyToPublish, findUnresolvedPlaceholders } from "@/lib/privacy-policy";
 import { POLICY_VERSION, POLICY_EFFECTIVE_DATE } from "@/lib/consent";
 import { siteConfig } from "@/lib/site-config";
@@ -128,24 +128,9 @@ export default function KebijakanPrivasiPage() {
         Versi {POLICY_VERSION} — berlaku sejak {POLICY_EFFECTIVE_DATE}
       </p>
 
-      <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-5">
-        <p className="font-heading text-base font-bold">Ringkasan singkat</p>
-        <p className="mt-1 text-xs text-muted-foreground">
-          Bagian ini bukan pengganti isi selengkapnya di bawah, tapi inilah intinya:
-        </p>
-        <ul className="mt-3 space-y-2 text-sm">
-          {RINGKASAN_SINGKAT.map((item, i) => (
-            <li key={i} className="flex gap-2">
-              <span aria-hidden className="text-primary">
-                •
-              </span>
-              <span>
-                <InlineText text={item} />
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+        <InlineText text={INTRO_TEXT} />
+      </p>
 
       <nav aria-label="Daftar isi" className="mt-8 rounded-xl border border-border p-4">
         <p className="text-sm font-semibold">Daftar isi</p>

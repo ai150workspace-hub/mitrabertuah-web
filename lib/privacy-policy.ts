@@ -1,4 +1,4 @@
-import { RINGKASAN_SINGKAT, PRIVACY_SECTIONS, type PolicyBlock } from "@/content/kebijakan-privasi";
+import { INTRO_TEXT, PRIVACY_SECTIONS, type PolicyBlock } from "@/content/kebijakan-privasi";
 import { POLICY_VERSION, POLICY_EFFECTIVE_DATE } from "@/lib/consent";
 
 const PLACEHOLDER_PATTERN = "[[";
@@ -23,7 +23,7 @@ function blockStrings(block: PolicyBlock): string[] {
 // terdeteksi. Karena itu setiap field baru di PolicySection/PolicyBlock
 // wajib ditambahkan ke blockStrings() di atas.
 function allDisplayedPolicyStrings(): string[] {
-  const strings: string[] = [...RINGKASAN_SINGKAT, POLICY_VERSION, POLICY_EFFECTIVE_DATE];
+  const strings: string[] = [INTRO_TEXT, POLICY_VERSION, POLICY_EFFECTIVE_DATE];
   for (const section of PRIVACY_SECTIONS) {
     strings.push(section.title);
     for (const block of section.blocks) strings.push(...blockStrings(block));

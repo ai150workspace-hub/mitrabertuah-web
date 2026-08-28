@@ -12,7 +12,7 @@ export const siteConfig = {
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",
   // Dikonfirmasi owner 2026-08-28 — harus sama persis dengan yang
   // dipakai di content/kebijakan-privasi.ts bagian 1.
-  officeAddress: "Jl. Rajawali Sakti No. 2, Kel. Toek Godang, Kec. Binawidya, Kota Pekanbaru, Riau",
+  officeAddress: "Jl. Rajawali Sakti No. 2, Kel. Tobek Godang, Kec. Binawidya, Kota Pekanbaru, Riau",
   businessEntity: "[TUNGGU KONFIRMASI OWNER]",
   legalDisclaimer: "[TUNGGU KONFIRMASI OWNER]",
   // Tidak menyebut nama/logo mitra leasing mana pun — Aturan Mutlak #7,
