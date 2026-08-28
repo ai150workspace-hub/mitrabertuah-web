@@ -152,7 +152,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       },
       {
         type: "p",
-        text: "[[TANYA PENGACARA: apa yang harus kami penuhi berdasarkan ketentuan transfer data lintas negara dalam UU PDP, dan bagaimana kalimatnya harus ditulis di sini?]]",
+        text: "Dengan menggunakan layanan ini dan mengirimkan formulir, Anda memberikan persetujuan eksplisit kepada kami untuk menyimpan dan memproses data pribadi Anda pada infrastruktur server pihak ketiga di luar wilayah Indonesia (Seoul, Korea Selatan dan Washington D.C., Amerika Serikat) sesuai prinsip Pelindungan Data Pribadi.",
       },
     ],
   },
@@ -200,10 +200,6 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       {
         type: "p",
         text: "Anda dapat menonaktifkan cookie melalui pengaturan peramban. Menonaktifkannya tidak menghalangi Anda menggunakan situs ini.",
-      },
-      {
-        type: "p",
-        text: "[[TANYA PENGACARA: apakah UU PDP mewajibkan kami meminta persetujuan terpisah sebelum mengaktifkan Google Analytics dan reCAPTCHA — yaitu banner cookie — atau cukup pemberitahuan seperti di atas?]]",
       },
     ],
   },
