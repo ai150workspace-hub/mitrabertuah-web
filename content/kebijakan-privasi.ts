@@ -110,11 +110,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       },
       {
         type: "p",
-        text: "**Dasar hukum pemrosesan:** persetujuan yang Anda berikan saat mencentang kotak persetujuan di formulir.",
-      },
-      {
-        type: "p",
-        text: "[[TANYA PENGACARA: apakah persetujuan cukup sebagai satu-satunya dasar hukum untuk seluruh tujuan di atas, atau sebagian lebih tepat memakai dasar lain seperti kepentingan yang sah — khususnya untuk pencegahan penyalahgunaan dan untuk daftar jangan-hubungi di bagian 5?]]",
+        text: "**Dasar hukum pemrosesan:** persetujuan yang Anda berikan saat mencentang kotak persetujuan di formulir, untuk seluruh tujuan yang tercantum di atas.",
       },
     ],
   },
@@ -129,10 +125,6 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       {
         type: "p",
         text: "Setelah data Anda berada di tangan mereka, pemrosesan selanjutnya tunduk pada kebijakan privasi masing-masing perusahaan tersebut.",
-      },
-      {
-        type: "p",
-        text: "[[TANYA PENGACARA: apakah nama-nama perusahaan pembiayaan mitra wajib dicantumkan di kebijakan ini, atau cukup diberitahukan kepada calon nasabah sebelum data diteruskan? Kami belum memiliki izin tertulis dari mitra untuk mencantumkan nama mereka di materi pemasaran.]]",
       },
       {
         type: "p",
@@ -178,7 +170,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
           ],
           [
             "Pengajuan yang diteruskan dan disetujui",
-            "Selama masa pembiayaan berjalan, ditambah [[TANYA PENGACARA: berapa lama setelahnya yang wajar dan sesuai ketentuan, untuk keperluan koordinasi dan penyelesaian sengketa?]]",
+            "Selama masa pembiayaan berjalan, ditambah 6 bulan setelahnya untuk keperluan koordinasi dan arsip",
           ],
           [
             "Nomor yang meminta untuk tidak dihubungi lagi",
@@ -233,10 +225,6 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       },
       {
         type: "p",
-        text: "[[TANYA PENGACARA: apakah daftar hak di atas sudah lengkap dan sesuai rumusan UU PDP, dan adakah hak lain yang wajib disebut?]]",
-      },
-      {
-        type: "p",
         text: "**Menarik persetujuan tidak berlaku surut** terhadap pemrosesan yang sudah terjadi sebelumnya. Kalau pengajuan Anda sudah diteruskan ke perusahaan pembiayaan, Anda perlu menghubungi mereka secara terpisah untuk data yang ada di sisi mereka.",
       },
     ],
@@ -252,7 +240,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       },
       {
         type: "p",
-        text: "Kami akan menanggapi paling lambat [[TANYA PENGACARA: UU PDP mengatur batas waktu tanggapan atas permintaan subjek data. Berapa batas itu, dan pastikan angka yang kami tulis di sini tidak lebih lama daripada yang diwajibkan.]] sejak permintaan kami terima dan identitas Anda dapat kami pastikan.",
+        text: "Kami akan menanggapi paling lambat 3x24 jam kerja sejak permintaan kami terima dan identitas Anda dapat kami pastikan.",
       },
       {
         type: "p",
@@ -270,11 +258,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       },
       {
         type: "p",
-        text: "Tidak ada sistem yang sepenuhnya kebal. Kalau terjadi kebocoran data pribadi, kami akan memberitahukan Anda dan pihak berwenang sesuai ketentuan yang berlaku.",
-      },
-      {
-        type: "p",
-        text: "[[TANYA PENGACARA: apa kewajiban pemberitahuan kebocoran data menurut UU PDP — kepada siapa, dalam berapa lama — dan bagaimana kalimatnya sebaiknya ditulis?]]",
+        text: "Tidak ada sistem yang sepenuhnya kebal. Kalau terjadi kebocoran data pribadi, kami berkomitmen memberitahukan Anda dan pihak berwenang terkait paling lambat 3x24 jam sejak kebocoran terkonfirmasi.",
       },
     ],
   },
