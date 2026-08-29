@@ -58,20 +58,24 @@ export function HeroSection() {
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          {/* Visual asli dari owner (ganti ilustrasi SVG generik
-              sebelumnya). SENGAJA tidak preload: di breakpoint mobile
-              (yang dipakai Lighthouse) layout ini grid-cols-1, jadi
-              gambar ini ada DI BAWAH tombol CTA, bukan LCP sungguhan —
-              preload di sini hanya menyaingi bandwidth font/teks hero
-              yang benar-benar LCP-nya. Lihat riwayat regresi LCP redesign
-              sebelumnya sebelum mengubah ini. width/height eksplisit
-              tetap dipasang supaya next/image bisa optimasi ukuran file
-              PNG mentahnya. */}
+          {/* Visual asli dari owner (revisi kedua — versi pertama diganti
+              karena background "transparan" yang dikirim ternyata JPEG
+              dengan pola kotak-kotak yang ter-bakar jadi piksel sungguhan;
+              sudah dibersihkan lewat flood-fill dari tepi gambar jadi PNG
+              transparan asli). preload dipasang atas instruksi eksplisit
+              owner — CATATAN: di breakpoint mobile (grid-cols-1) gambar
+              ini ada di bawah tombol CTA, bukan elemen LCP sungguhan,
+              jadi preload di sini bisa menyaingi bandwidth font/teks hero
+              yang LCP-nya. Sudah pernah diberi tahu soal ini sebelumnya;
+              kalau skor Lighthouse mobile turun lagi, ini kandidat
+              pertama yang dicurigai. */}
           <Image
             src="/hero-visual.png"
             alt="Pengajuan gadai BPKB cepat, syarat mudah, pencairan tinggi"
-            width={1091}
+            width={1120}
             height={960}
+            preload
+            sizes="(max-width: 1024px) 90vw, 680px"
             className="w-full max-w-sm"
           />
         </div>
