@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   siteConfig,
   displayOfficeAddress,
@@ -16,7 +17,10 @@ export function Footer() {
       <div className="mx-auto max-w-5xl px-4 py-12">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
-            <div className="font-semibold text-lg">{siteConfig.brandName}</div>
+            <div className="flex items-center gap-2">
+              <Image src="/logo.png" alt="" width={28} height={28} className="size-7 rounded-lg" />
+              <span className="font-semibold text-lg">{siteConfig.brandName}</span>
+            </div>
             <p className="mt-2 text-sm text-muted-foreground">{displayOfficeAddress()}</p>
           </div>
 
