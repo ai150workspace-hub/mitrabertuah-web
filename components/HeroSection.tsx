@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { MapPin, Users } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { HeroIllustration } from "@/components/HeroIllustration";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site-config";
@@ -58,7 +58,22 @@ export function HeroSection() {
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          <HeroIllustration />
+          {/* Visual asli dari owner (ganti ilustrasi SVG generik
+              sebelumnya). SENGAJA tidak preload: di breakpoint mobile
+              (yang dipakai Lighthouse) layout ini grid-cols-1, jadi
+              gambar ini ada DI BAWAH tombol CTA, bukan LCP sungguhan —
+              preload di sini hanya menyaingi bandwidth font/teks hero
+              yang benar-benar LCP-nya. Lihat riwayat regresi LCP redesign
+              sebelumnya sebelum mengubah ini. width/height eksplisit
+              tetap dipasang supaya next/image bisa optimasi ukuran file
+              PNG mentahnya. */}
+          <Image
+            src="/hero-visual.png"
+            alt="Pengajuan gadai BPKB cepat, syarat mudah, pencairan tinggi"
+            width={1091}
+            height={960}
+            className="w-full max-w-sm"
+          />
         </div>
       </div>
     </section>
