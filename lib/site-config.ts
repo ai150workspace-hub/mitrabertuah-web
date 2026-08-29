@@ -7,7 +7,8 @@
 // mengonfirmasi.
 export const siteConfig = {
   brandName: "Mitra Bertuah",
-  domain: "mitrabertuah.com",
+  // Domain resmi dibeli owner 2026-08-28 (bukan .com seperti sebelumnya).
+  domain: "mitrabertuah.id",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",
   // Dikonfirmasi owner 2026-08-28 — harus sama persis dengan yang

@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { getAllArticles } from "@/lib/articles";
 import { KOTA_WHITELIST } from "@/lib/kota";
+import { isPolicyReadyToPublish } from "@/lib/privacy-policy";
 
-// /kebijakan-privasi SENGAJA tidak dimasukkan — noindex (§11.7).
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getAllArticles();
 
@@ -18,6 +18,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    // Sama seperti generateMetadata di app/kebijakan-privasi/page.tsx —
+    // ikut gate isi halamannya, bukan dimasukkan tanpa syarat.
+    ...(isPolicyReadyToPublish()
+      ? [{ url: `${siteConfig.siteUrl}/kebijakan-privasi`, changeFrequency: "yearly" as const, priority: 0.3 }]
+      : []),
     ...KOTA_WHITELIST.map((kota) => ({
       url: `${siteConfig.siteUrl}/${kota.slug}`,
       changeFrequency: "monthly" as const,

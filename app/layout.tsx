@@ -44,12 +44,10 @@ export const metadata: Metadata = {
     locale: "id_ID",
     type: "website",
   },
-  // NOINDEX SITUS PENUH — situs sudah live & bisa diindeks Google sementara
-  // [TUNGGU KONFIRMASI OWNER] masih tampil di 6+ tempat dan section
-  // kepercayaan masih kosong. Lepas HANYA kalau owner memberi instruksi
-  // eksplisit bahwa situs siap publish (lihat juga app/robots.ts, yang
-  // harus diubah bersamaan dengan ini).
-  robots: { index: false, follow: false },
+  // Situs diizinkan terindeks sejak 2026-08-28 atas instruksi eksplisit
+  // owner ("website sudah jadi, tolong rubah jadi indexable") — lihat
+  // juga app/robots.ts, yang diubah bersamaan dengan ini.
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

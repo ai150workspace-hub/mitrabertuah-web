@@ -6,13 +6,18 @@ import { POLICY_VERSION, POLICY_EFFECTIVE_DATE } from "@/lib/consent";
 import { siteConfig } from "@/lib/site-config";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-// noindex wajib terlepas dari status gate di bawah (§11.7 / aturan
-// PROMPT_PRIVASI §"yang tidak boleh kamu lakukan": jangan lepas noindex
-// dari halaman mana pun).
-export const metadata: Metadata = {
-  title: `Kebijakan Privasi — ${siteConfig.brandName}`,
-  robots: { index: false, follow: false },
-};
+// Indexable sejak 2026-08-28 (sama seperti seluruh situs) — TAPI
+// diturunkan dari gate yang sama dengan isi halamannya, bukan dipatok
+// statis. Kalau placeholder [[ ]] pernah muncul lagi nanti (pertanyaan
+// hukum baru dsb.), halaman otomatis noindex lagi bersamaan dengan
+// kontennya disembunyikan — tidak bergantung pada seseorang ingat
+// mengubah metadata ini secara manual.
+export function generateMetadata(): Metadata {
+  return {
+    title: `Kebijakan Privasi — ${siteConfig.brandName}`,
+    ...(isPolicyReadyToPublish() ? {} : { robots: { index: false, follow: false } }),
+  };
+}
 
 // Rendering **bold** minimal, tanpa library markdown — konten sumber cuma
 // pakai bold, tidak ada elemen inline lain (link, italic, kode) di isi

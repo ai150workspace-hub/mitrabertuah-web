@@ -1,15 +1,16 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 
-// NOINDEX SITUS PENUH — pasangan dari app/layout.tsx metadata.robots.
-// Lepas HANYA kalau owner memberi instruksi eksplisit bahwa situs siap
-// publish. Sitemap tetap disertakan (tidak masalah tersedia meski
-// disallow — Google tetap butuh tahu URL-nya kalau nanti dibuka).
+// Pasangan dari app/layout.tsx metadata.robots — diizinkan terindeks
+// sejak 2026-08-28 atas instruksi eksplisit owner. /kebijakan-privasi
+// tidak dikecualikan di sini karena kontennya sendiri sudah tayang
+// (lihat app/kebijakan-privasi/page.tsx) — tetap tidak dimasukkan ke
+// sitemap.ts, itu keputusan terpisah dan tidak berubah oleh ini.
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      disallow: "/",
+      allow: "/",
     },
     sitemap: `${siteConfig.siteUrl}/sitemap.xml`,
   };
