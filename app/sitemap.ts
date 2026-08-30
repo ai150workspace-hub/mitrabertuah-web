@@ -2,8 +2,16 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { getAllArticles } from "@/lib/articles";
 import { KOTA_WHITELIST } from "@/lib/kota";
-import { isPolicyReadyToPublish } from "@/lib/privacy-policy";
 
+// /kebijakan-privasi SENGAJA tidak pernah masuk sini — noindex permanen
+// (PROMPT_SITEMAP_NOINDEX_mitrabertuah.md §1), halaman kepatuhan bukan
+// halaman yang perlu diperingkatkan, terlepas dari status kontennya.
+//
+// /artikel bersyarat pada jumlah artikel yang benar-benar terbit (§2) —
+// getAllArticles() sumber yang sama dipakai app/artikel/page.tsx untuk
+// generateMetadata-nya dan untuk membangun URL tiap artikel di bawah
+// (§3, otomatis — bukan ditulis manual satu per satu, dan draft:true
+// sudah difilter di dalam getAllArticles() sendiri).
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getAllArticles();
 
@@ -13,15 +21,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: `${siteConfig.siteUrl}/artikel`,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    // Sama seperti generateMetadata di app/kebijakan-privasi/page.tsx —
-    // ikut gate isi halamannya, bukan dimasukkan tanpa syarat.
-    ...(isPolicyReadyToPublish()
-      ? [{ url: `${siteConfig.siteUrl}/kebijakan-privasi`, changeFrequency: "yearly" as const, priority: 0.3 }]
+    ...(articles.length > 0
+      ? [{ url: `${siteConfig.siteUrl}/artikel`, changeFrequency: "weekly" as const, priority: 0.7 }]
       : []),
     ...KOTA_WHITELIST.map((kota) => ({
       url: `${siteConfig.siteUrl}/${kota.slug}`,

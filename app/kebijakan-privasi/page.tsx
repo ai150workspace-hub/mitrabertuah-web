@@ -6,19 +6,19 @@ import { POLICY_VERSION, POLICY_EFFECTIVE_DATE } from "@/lib/consent";
 import { siteConfig } from "@/lib/site-config";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-// Indexable sejak 2026-08-28 (sama seperti seluruh situs) — TAPI
-// diturunkan dari gate yang sama dengan isi halamannya, bukan dipatok
-// statis. Kalau placeholder [[ ]] pernah muncul lagi nanti (pertanyaan
-// hukum baru dsb.), halaman otomatis noindex lagi bersamaan dengan
-// kontennya disembunyikan — tidak bergantung pada seseorang ingat
-// mengubah metadata ini secara manual.
-export function generateMetadata(): Metadata {
-  return {
-    title: `Kebijakan Privasi — ${siteConfig.brandName}`,
-    alternates: { canonical: "/kebijakan-privasi" },
-    ...(isPolicyReadyToPublish() ? {} : { robots: { index: false, follow: false } }),
-  };
-}
+// noindex PERMANEN (PROMPT_SITEMAP_NOINDEX_mitrabertuah.md §1) — halaman
+// kepatuhan, bukan halaman yang perlu diperingkatkan Google, terlepas
+// dari status gate isi halamannya di bawah. follow:true disengaja:
+// tautan DARI halaman ini (mis. ke WhatsApp) tetap boleh ditelusuri,
+// yang tidak diinginkan cuma halaman ini sendiri muncul di hasil
+// pencarian. Halaman tetap bisa diakses normal — noindex bukan blokir
+// akses, dan tautan ke sini dari footer + teks kotak centang persetujuan
+// tetap ada (lib/consent.ts, komponen tidak disentuh oleh perubahan ini).
+export const metadata: Metadata = {
+  title: `Kebijakan Privasi — ${siteConfig.brandName}`,
+  alternates: { canonical: "/kebijakan-privasi" },
+  robots: { index: false, follow: true },
+};
 
 // Rendering **bold** minimal, tanpa library markdown — konten sumber cuma
 // pakai bold, tidak ada elemen inline lain (link, italic, kode) di isi

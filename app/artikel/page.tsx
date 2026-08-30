@@ -3,11 +3,24 @@ import { getAllArticles } from "@/lib/articles";
 import { ArticleCard } from "@/components/ArticleCard";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: `Artikel — ${siteConfig.brandName}`,
-  description: "Panduan seputar gadai BPKB mobil dan motor di Pekanbaru dan sekitarnya.",
-  alternates: { canonical: "/artikel" },
-};
+// Bersyarat pada jumlah artikel yang benar-benar terbit
+// (PROMPT_SITEMAP_NOINDEX_mitrabertuah.md §2) — dibaca dari getAllArticles(),
+// sumber yang sama dipakai komponen halaman di bawah untuk menampilkan
+// daftarnya. Satu penghitung, bukan dua yang bisa berbeda. Nol artikel:
+// noindex (halaman kosong, tidak perlu diperingkatkan) dan dikeluarkan
+// dari sitemap.ts (logika sama di sana). Begitu artikel pertama terbit,
+// keduanya otomatis balik jadi index tanpa siapa pun perlu ingat
+// mengubahnya manual.
+export async function generateMetadata(): Promise<Metadata> {
+  const articles = await getAllArticles();
+
+  return {
+    title: `Artikel — ${siteConfig.brandName}`,
+    description: "Panduan seputar gadai BPKB mobil dan motor di Pekanbaru dan sekitarnya.",
+    alternates: { canonical: "/artikel" },
+    ...(articles.length === 0 ? { robots: { index: false, follow: true } } : {}),
+  };
+}
 
 export default async function ArtikelIndexPage() {
   const articles = await getAllArticles();
