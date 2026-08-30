@@ -31,6 +31,11 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Umumnya KTP, Kartu Keluarga, BPKB asli, dan STNK aktif. Dokumen tambahan bisa diminta tergantung kebijakan perusahaan pembiayaan. Dokumen tidak diunggah lewat website — semua diserahkan langsung lewat WhatsApp atau tatap muka setelah Anda lolos kualifikasi awal.",
   },
   {
+    question: "Apakah saya harus datang ke kantor?",
+    answer:
+      "Tidak perlu. Konsultasi dan pengajuan dilakukan lewat WhatsApp, dan survei kendaraan dilakukan petugas perusahaan pembiayaan di rumah atau tempat usaha Anda. Alamat kantor kami tetap kami cantumkan supaya Anda bisa memastikan kami bisa dihubungi.",
+  },
+  {
     question: "Berapa lama prosesnya?",
     answer:
       "Yang bisa kami janjikan hanya bagian yang kami kendalikan: berkas Anda kami teruskan ke perusahaan pembiayaan di hari yang sama. Lama proses setelah itu — survei, verifikasi, sampai pencairan — sepenuhnya di tangan perusahaan pembiayaan, jadi kami tidak menjanjikan tanggal cair.",

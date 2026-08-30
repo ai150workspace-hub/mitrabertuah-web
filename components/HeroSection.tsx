@@ -26,9 +26,14 @@ export function HeroSection() {
             Multifinance Berizin OJK
           </h1>
 
+          {/* PROMPT_NARASI_KANTOR_mitrabertuah.md — "bisa didatangi langsung"
+              dihapus, bukan karena kantornya disembunyikan, tapi karena
+              itu janji yang salah: nasabah tidak perlu datang, petugas
+              perusahaan pembiayaan yang survei ke lokasi nasabah. */}
           <p className="mt-6 text-lg text-muted-foreground text-balance">
-            Kantor kami ada di Pekanbaru — bisa didatangi langsung, dan kami
-            dampingi Anda sampai proses survei kendaraan selesai.
+            Berbasis di Pekanbaru. Survei kendaraan dilakukan di rumah atau
+            tempat usaha Anda — tim kami mendampingi dari pengajuan sampai
+            pencairan.
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground">

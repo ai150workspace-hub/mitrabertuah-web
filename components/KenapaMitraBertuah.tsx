@@ -14,7 +14,8 @@ export function KenapaMitraBertuah() {
         <div className="flex items-start gap-4">
           <MapPin className="mt-1 size-8 shrink-0 text-primary" />
           <p className="font-heading text-2xl font-bold sm:text-3xl">
-            Kami ada di Pekanbaru. Kantornya bisa didatangi.
+            Kami di Pekanbaru, bukan agen jarak jauh. Survei datang ke Anda,
+            bukan sebaliknya.
           </p>
         </div>
 

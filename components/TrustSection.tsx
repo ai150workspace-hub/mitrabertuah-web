@@ -24,6 +24,15 @@ export function TrustSection() {
           <MapPin className="size-7 text-primary" />
           <p className="mt-4 font-medium">Kantor kami di Pekanbaru</p>
           <p className="mt-1 text-sm text-muted-foreground">{displayOfficeAddress()}</p>
+          {/* PROMPT_NARASI_KANTOR §3 — alamat tetap tampil sebagai bukti
+              bisnis ini nyata, bukan ajakan datang. Kalimat ini yang
+              mengubah alamat dari sekadar info jadi alasan percaya. */}
+          <p className="mt-3 text-sm text-muted-foreground">
+            Anda tidak perlu datang ke kantor kami — survei dilakukan di rumah
+            atau tempat usaha Anda oleh petugas perusahaan pembiayaan. Alamat
+            ini kami cantumkan supaya Anda bisa memastikan bahwa kami nyata
+            dan bisa dihubungi.
+          </p>
         </div>
 
         <div className="rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-md p-6">
