@@ -163,7 +163,18 @@ export function LeadForm({ defaultKota = "Pekanbaru" }: { defaultKota?: string }
             control={control}
             name="jenisKendaraan"
             render={({ field }) => (
-              <Select value={field.value} onValueChange={field.onChange}>
+              // field.value dari useController bisa sesaat undefined di
+              // render pertama sisi klien meski defaultValues sudah "Mobil"
+              // — RHF baru menerapkan defaultValues lewat efek, bukan
+              // sinkron di render pertama. SSR sudah benar merender
+              // "Mobil", jadi tanpa fallback ini terjadi mismatch hydration
+              // (React error #418) di SETIAP pemuatan halaman yang punya
+              // form ini — bukan cuma kosmetik: ini yang bikin React
+              // membuang render tree lalu me-render ulang, dan itu yang
+              // menduplikasi JSON-LD LocalBusiness dari layout (lihat
+              // PROMPT_JSONLD_mitrabertuah.md). Fallback ke "Mobil" aman
+              // karena itu memang default yang dimaksud, bukan tebakan.
+              <Select value={field.value ?? "Mobil"} onValueChange={field.onChange}>
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
