@@ -9,7 +9,13 @@ export const siteConfig = {
   brandName: "Mitra Bertuah",
   // Domain resmi dibeli owner 2026-08-28 (bukan .com seperti sebelumnya).
   domain: "mitrabertuah.id",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  // Cadangan diubah dari localhost ke domain produksi asli (PROMPT_CANONICAL
+  // §1) — metadataBase & tag canonical butuh URL absolut yang benar kalau
+  // env var ini pernah hilang di produksi; localhost sebagai cadangan akan
+  // jadi kegagalan yang jauh lebih buruk untuk SEO daripada domain asli.
+  // .env.local tetap set ke localhost untuk dev, jadi ini tidak mengubah
+  // pengalaman development sehari-hari.
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mitrabertuah.id",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",
   // Dikonfirmasi owner 2026-08-28 — harus sama persis dengan yang
   // dipakai di content/kebijakan-privasi.ts bagian 1.

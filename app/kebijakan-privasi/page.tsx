@@ -15,6 +15,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 export function generateMetadata(): Metadata {
   return {
     title: `Kebijakan Privasi — ${siteConfig.brandName}`,
+    alternates: { canonical: "/kebijakan-privasi" },
     ...(isPolicyReadyToPublish() ? {} : { robots: { index: false, follow: false } }),
   };
 }

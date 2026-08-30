@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: `Artikel — ${siteConfig.brandName}`,
   description: "Panduan seputar gadai BPKB mobil dan motor di Pekanbaru dan sekitarnya.",
+  alternates: { canonical: "/artikel" },
 };
 
 export default async function ArtikelIndexPage() {

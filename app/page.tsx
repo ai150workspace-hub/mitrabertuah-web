@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/HeroSection";
 import { ProcessSteps } from "@/components/ProcessSteps";
@@ -16,6 +17,12 @@ import { FaqJsonLd } from "@/components/JsonLd";
 // dieksekusi sebelum halaman interaktif. Ditemukan lewat pengukuran
 // Lighthouse production sungguhan (skor turun 84->66 sebelum perbaikan
 // ini), bukan dugaan.
+// PROMPT_CANONICAL_mitrabertuah.md — path relatif, dilengkapi jadi URL
+// absolut oleh metadataBase (app/layout.tsx).
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 const JourneyKelayakan = dynamic(() =>
   import("@/components/JourneyKelayakan").then((m) => m.JourneyKelayakan)
 );

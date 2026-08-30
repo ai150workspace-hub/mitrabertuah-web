@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: `Gadai BPKB Mobil & Motor di ${info.nama} — ${siteConfig.brandName}`,
     description: `Pengajuan pembiayaan jaminan BPKB mobil dan motor di ${info.nama}, diproses lewat mitra resmi perusahaan pembiayaan berizin OJK.`,
+    alternates: { canonical: `/${info.slug}` },
   };
 }
 

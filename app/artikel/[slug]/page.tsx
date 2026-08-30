@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: `${article.title} — ${siteConfig.brandName}`,
     description: article.excerpt,
+    alternates: { canonical: `/artikel/${slug}` },
   };
 }
 
