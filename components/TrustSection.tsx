@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ShieldCheck, MapPin, BadgeCheck, ImageOff } from "lucide-react";
+import { ShieldCheck, MapPin, BadgeCheck } from "lucide-react";
 import { displayOfficeAddress, displayBusinessEntity } from "@/lib/site-config";
+import { MapEmbed } from "@/components/MapEmbed";
 
-// Alamat & status badan usaha asli SENGAJA menunggu owner (§1) — yang
-// tampil di bawah adalah fallback netral (lib/site-config.ts), bukan
-// karangan. Jangan ganti tanpa konfirmasi eksplisit.
-// TODO: menunggu teks final dari owner (alamat lengkap, status badan usaha).
+// Status badan usaha resmi (bentuk CV/PT/perorangan) SENGAJA masih
+// menunggu owner (§1) — displayBusinessEntity() sudah punya fallback
+// netral sendiri. Alamat kantor sudah dikonfirmasi (lib/site-config.ts).
 export function TrustSection() {
   return (
     <section className="mx-auto max-w-5xl px-4 py-16">
@@ -33,13 +33,11 @@ export function TrustSection() {
         </div>
       </div>
 
-      {/* Slot foto kantor/tim — TODO: ganti dengan foto asli begitu ada.
-          SENGAJA bukan foto stok orang lain (redesign brief: itu jenis
-          kepalsuan yang sama dengan testimoni palsu). */}
-      <div className="mt-6 flex items-center justify-center gap-3 rounded-2xl border border-dashed border-border bg-muted/30 px-6 py-10 text-center">
-        <ImageOff className="size-6 text-muted-foreground" />
-        <p className="text-sm text-muted-foreground">Foto kantor &amp; tim segera hadir</p>
-      </div>
+      {/* Peta lokasi kantor (PROMPT_PETA_mitrabertuah.md) — menggantikan
+          placeholder "Foto kantor & tim segera hadir". Alamat teks di
+          kartu kedua grid di atas TETAP ada — peta melengkapi, bukan
+          menggantikan. */}
+      <MapEmbed />
 
       <div className="mt-8 space-y-2 text-center">
         <p className="text-sm text-muted-foreground">

@@ -17,10 +17,10 @@ export const CONSENT_TEXT =
 // Nomor versi & tanggal berlaku DOKUMEN kebijakan privasi (bukan versi teks
 // checkbox di atas — dua hal berbeda, lihat Lampiran A). Satu-satunya
 // tempat nilai ini didefinisikan; app/kebijakan-privasi/page.tsx membaca
-// dari sini, tidak menulis ulang. POLICY_EFFECTIVE_DATE sengaja dibiarkan
-// sebagai placeholder berkurung-dua — lib/privacy-policy.ts memindai nilai
-// ini juga, jadi halaman tidak akan tayang selama owner belum mengisi
-// tanggal publikasi sungguhan.
-export const POLICY_VERSION = "1.0";
-// Dikonfirmasi owner 2026-08-28.
-export const POLICY_EFFECTIVE_DATE = "28 Agustus 2026";
+// dari sini, tidak menulis ulang.
+// 1.1 (2026-08-30): PROMPT_PETA_mitrabertuah.md — menambahkan Google Maps
+// ke daftar layanan pihak ketiga bagian 2, dan kalimat soal peta baru
+// memuat setelah diklik. Isinya berubah, jadi versinya wajib naik
+// (aturan sumber: "jangan mengubah isinya tanpa menaikkan versinya").
+export const POLICY_VERSION = "1.1";
+export const POLICY_EFFECTIVE_DATE = "30 Agustus 2026";

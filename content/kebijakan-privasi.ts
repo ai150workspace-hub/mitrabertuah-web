@@ -46,7 +46,11 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       },
       {
         type: "p",
-        text: "Kami juga menggunakan sejumlah layanan teknologi tepercaya (Google Analytics dan Google reCAPTCHA) untuk memahami kunjungan situs dan mencegah pengisian formulir oleh robot.",
+        text: "Kami juga menggunakan sejumlah layanan teknologi tepercaya (Google Analytics, Google reCAPTCHA, dan Google Maps) untuk memahami kunjungan situs, mencegah pengisian formulir oleh robot, dan menampilkan peta lokasi kantor.",
+      },
+      {
+        type: "p",
+        text: "Peta lokasi kantor di situs ini baru memuat setelah Anda mengkliknya — sebelum diklik, tidak ada data yang dikirim ke Google.",
       },
     ],
   },
