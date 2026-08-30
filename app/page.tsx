@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/HeroSection";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { KenapaMitraBertuah } from "@/components/KenapaMitraBertuah";
+import { PartnerLogos } from "@/components/PartnerLogos";
 import { TrustSection } from "@/components/TrustSection";
 import { LeadFormSection } from "@/components/LeadFormSection";
 import { FaqSection } from "@/components/FaqSection";
@@ -20,9 +21,11 @@ const JourneyKelayakan = dynamic(() =>
 );
 
 // Arsitektur informasi redesign brief: Hero -> Journey -> CaraKerjanya ->
-// KenapaMitraBertuah -> Kepercayaan (di atas form) -> Form -> FAQ ->
-// CtaPenutup -> RecentArticles (tetap ada, otomatis kosong sampai artikel
-// pertama terbit). NeedsSection dihapus — di luar IA baru.
+// KenapaMitraBertuah -> PartnerLogos -> Kepercayaan (di atas form) -> Form ->
+// FAQ -> CtaPenutup -> RecentArticles (tetap ada, otomatis kosong sampai
+// artikel pertama terbit). NeedsSection dihapus — di luar IA baru.
+// PartnerLogos ditambahkan sesuai PROMPT_LOGO_MITRA_mitrabertuah.md —
+// posisinya persis di antara KenapaMitraBertuah dan Kepercayaan (§3).
 export default function HomePage() {
   return (
     <>
@@ -31,6 +34,7 @@ export default function HomePage() {
       <JourneyKelayakan />
       <ProcessSteps />
       <KenapaMitraBertuah />
+      <PartnerLogos />
       <TrustSection />
       <LeadFormSection />
       <FaqSection />
