@@ -20,6 +20,13 @@ export const siteConfig = {
   // Dikonfirmasi owner 2026-08-28 — harus sama persis dengan yang
   // dipakai di content/kebijakan-privasi.ts bagian 1.
   officeAddress: "Jl. Rajawali Sakti No. 2, Kel. Tobek Godang, Kec. Binawidya, Kota Pekanbaru, Riau",
+  // Dikonfirmasi owner (PROMPT_GEO_mitrabertuah.md) — angka, bukan teks.
+  // Satu-satunya tempat koordinat ini ditulis; JSON-LD, MapEmbed, dan
+  // tautan "Buka di Google Maps"/"Petunjuk arah" semua membaca dari sini,
+  // bukan dari teks alamat. Alasannya: gedung kantor berbagi dengan usaha
+  // lain, pencarian berbasis teks alamat bisa menjatuhkan pin di bisnis
+  // tetangga.
+  officeCoordinates: { latitude: 0.479015, longitude: 101.397703 },
   businessEntity: "[TUNGGU KONFIRMASI OWNER]",
   legalDisclaimer: "[TUNGGU KONFIRMASI OWNER]",
   // Tidak menyebut nama/logo mitra leasing mana pun — Aturan Mutlak #7,

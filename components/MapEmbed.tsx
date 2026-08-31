@@ -18,14 +18,21 @@ import { trackEvent } from "@/lib/analytics";
 //
 // Tanpa API key, tanpa dependensi peta baru — URL sematan publik Google
 // Maps (`/maps?q=...&output=embed`).
+//
+// Pin dari KOORDINAT (siteConfig.officeCoordinates), bukan pencarian teks
+// alamat (PROMPT_GEO_mitrabertuah.md §3) — gedung kantor berbagi dengan
+// usaha lain, pencarian teks bisa menjatuhkan pin di bisnis tetangga.
+// Alamat teks tetap ditampilkan di kartu (untuk manusia); koordinat yang
+// menentukan titik pin dan tautan (untuk mesin/navigasi).
 export function MapEmbed() {
   const [showMap, setShowMap] = useState(false);
   const address = displayOfficeAddress();
-  const encodedAddress = encodeURIComponent(address);
+  const { latitude, longitude } = siteConfig.officeCoordinates;
+  const coords = `${latitude},${longitude}`;
 
-  const embedSrc = `https://www.google.com/maps?q=${encodedAddress}&output=embed`;
-  const openMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
+  const embedSrc = `https://www.google.com/maps?q=${coords}&z=17&output=embed`;
+  const openMapsUrl = `https://www.google.com/maps/search/?api=1&query=${coords}`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${coords}`;
 
   return (
     <div className="mt-6">

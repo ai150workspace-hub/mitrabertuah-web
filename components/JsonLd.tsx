@@ -50,6 +50,14 @@ export function LocalBusinessJsonLd() {
       addressRegion: "Riau",
       addressCountry: "ID",
     };
+    // Koordinat, bukan pencarian teks alamat — gedung kantor berbagi
+    // dengan usaha lain (PROMPT_GEO_mitrabertuah.md §3).
+    business.geo = {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.officeCoordinates.latitude,
+      longitude: siteConfig.officeCoordinates.longitude,
+    };
+    business.hasMap = `https://www.google.com/maps?q=${siteConfig.officeCoordinates.latitude},${siteConfig.officeCoordinates.longitude}`;
   }
 
   if (siteConfig.whatsappNumber) {
